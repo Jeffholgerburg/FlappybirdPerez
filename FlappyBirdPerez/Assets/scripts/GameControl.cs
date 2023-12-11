@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
+public class GameControl : MonoBehaviour
 {
-    public static GameController instance;
+    public static GameControl instance;
     public GameObject  GameOverText;
     public bool GameOver = false;
     public float scrollSpeed = -1.5f;
+
+    private int score = 0;
 
 
     // Start is called before the first frame update
@@ -31,6 +33,14 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
         }
+    }
+    public void BirdScored()
+    {
+        if(GameOver)
+        {
+            return;
+        }
+        score++;
     }
     public void BirdDead()
     {
