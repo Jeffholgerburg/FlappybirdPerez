@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
     public static GameControl instance;
     public GameObject  GameOverText;
+    public TextMeshProUGUI scoreText;
     public bool GameOver = false;
     public float scrollSpeed = -1.5f;
 
@@ -41,6 +44,7 @@ public class GameControl : MonoBehaviour
             return;
         }
         score++;
+        scoreText.text = "score " + score.ToString();
     }
     public void BirdDead()
     {
