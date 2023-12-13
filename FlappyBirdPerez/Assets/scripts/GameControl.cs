@@ -32,7 +32,7 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameOver == true && Input.GetMouseButton(0))
+        if (GameOver == true && Input.GetMouseButton(0))
         {
             SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
         }
