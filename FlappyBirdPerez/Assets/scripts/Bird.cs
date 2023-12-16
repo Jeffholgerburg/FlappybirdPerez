@@ -9,6 +9,10 @@ public class Bird : MonoBehaviour
     private bool isDead = false;
     private Rigidbody2D rb2d;
     private Animator anim;
+
+    AudioSource audioSource;
+    public AudioClip flapsound;
+    public AudioClip diesound2;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,11 @@ public class Bird : MonoBehaviour
         isDead = true;
         anim.SetTrigger("Die");
         GameControl.instance.BirdDead();
+        PlaySound(diesound2);
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 
 }

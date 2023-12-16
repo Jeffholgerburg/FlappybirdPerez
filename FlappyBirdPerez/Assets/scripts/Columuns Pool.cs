@@ -7,11 +7,11 @@ public class ColumunsPool : MonoBehaviour
     public int ColumunsPoolSize = 5;
     public GameObject columunsPrefab;
     public float spawnRate = 4f;
-    public float columnMin = -1f;
-    public float columnMax = 3.5f;
+    public float columnMin = -2f;
+    public float columnMax = 2f;
     
     private GameObject[] columuns;
-    private Vector2 objectPoolPosition = new Vector2 (-15, -25f);
+    private Vector2 objectPoolPosition = new Vector2 (-15f, -25f);
     private float timesSinceLastSpawned;
     private float spawnXPosition = 10f;
     private int currentColumn = 0;
@@ -22,7 +22,7 @@ public class ColumunsPool : MonoBehaviour
         columuns = new GameObject[ColumunsPoolSize];
         for (int i = 0; i < ColumunsPoolSize; i++)
         {
-            columuns[i] = (GameObject) Instantiate(columunsPrefab, objectPoolPosition, Quaternion.identity);
+            columuns [i] = (GameObject)Instantiate (columunsPrefab, objectPoolPosition, Quaternion.identity);
         }
     }
 
@@ -31,7 +31,7 @@ public class ColumunsPool : MonoBehaviour
     {
         timesSinceLastSpawned += Time.deltaTime;
 
-        if (GameControl.instance.GameOver == false && timesSinceLastSpawned < spawnRate)
+        if (GameControl.instance.GameOver == false && timesSinceLastSpawned >= spawnRate)
         {
             timesSinceLastSpawned = 0;
             float spawnYPosition = Random.Range (columnMin, columnMax);
